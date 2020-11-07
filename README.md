@@ -5,8 +5,8 @@
 ##usersテーブル
 
 | Column      | Type     | Options     |
-| email        | string   | null: false | devise読み込み
-| password     | string   | null: false | devise読み込み
+| email       | string   | null: false | devise読み込み
+| encrypted_password | string | null: false | devise読み込み
 | nickname     | string   | null: false |
 | first_name   | string   | null: false |
 | second_name  | string   | null: fa;se |
