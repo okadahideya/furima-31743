@@ -20,7 +20,7 @@
 ##itemsテーブル
 
 | Column                  | Type        | Options           |
-| user-id                 |  references | foreigh_key: true |
+| user                    |  references | foreigh_key: true |
 | name                    |  string     | null: false       |
 | explanation             |  text       | null: false       |
 | category-genre_id       |  integer    | null: false       |
@@ -32,18 +32,18 @@
 
 ### Association
 - belongs_to :user
-- has_one    :purchases
+- has_one    :purchase
 
 
 ##purchasesテーブル
 | Column            | Type       | Options          |
-| user-id         | references | foreight_key: true |
-| item-id         | references | foreight_key: true |
+| user              | references | foreight_key: true |
+| item              | references | foreight_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :delivery
+- has_one    :delivery
 
 
 ##deliveriesテーブル
@@ -55,7 +55,7 @@
 | adderss            | string     | null: false |
 | build-name         | string     |             |
 | phone-number       | string     | null: false |
-| purchase-id        | references | null: false |
+| purchase           | references | null: false |
 
 ### Association
 - belongs_to :purchase
