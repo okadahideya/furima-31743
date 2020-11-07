@@ -5,14 +5,14 @@
 ##usersテーブル
 
 | Column      | Type     | Options     |
-|email        | string   | null: false | devise読み込み
-|password     | string   | null: false | devise読み込み
-|nickname     | string   | null: false |
-|first-name   | string   | null: false |
-|second-name  | string   | null: fa;se |
-|first-name-k | string   | null: false |
-|second-name-k| string   | null: false |
-|birthday     | date     | null: false |
+| email        | string   | null: false | devise読み込み
+| password     | string   | null: false | devise読み込み
+| nickname     | string   | null: false |
+| first_name   | string   | null: false |
+| second_name  | string   | null: fa;se |
+| first_name_k | string   | null: false |
+| second_name_k| string   | null: false |
+| birthday     | date     | null: false |
 ### Association
 - has_many :items
 - has_many :purchases
@@ -20,14 +20,14 @@
 ##itemsテーブル
 
 | Column                  | Type        | Options           |
-| user                    |  references | foreigh_key: true |
+| user                    |  references | foreign_key: true |
 | name                    |  string     | null: false       |
 | explanation             |  text       | null: false       |
-| category-genre_id       |  integer    | null: false       |
+| category_genre_id       |  integer    | null: false       |
 | status-genre_id         |  integer    | null: false       |
-| delivery-barden-genre_id|  integer    | null: false       |
-| delivery-area-genre_id  |  integer    | null: false       |
-| delivery-days-genre_id  |  integer    | null: false       |
+| delivery_burden_genre_id|  integer    | null: false       |
+| prefecture_genre_id      |  integer    | null: false       |
+| delivery_days_genre_id  |  integer    | null: false       |
 | price                   |  integer    | null: false       |
 
 ### Association
@@ -37,8 +37,8 @@
 
 ##purchasesテーブル
 | Column            | Type       | Options          |
-| user              | references | foreight_key: true |
-| item              | references | foreight_key: true |
+| user              | references | foreign_key: true |
+| item              | references | foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -49,12 +49,12 @@
 ##deliveriesテーブル
 
 | Column             | Type       | Options     |
-| postal-code        | string     | null: false |
-| prefectur-genre_id | integer    | null: false |
+| postal_code        | string     | null: false |
+| prefecture_genre_id | integer    | null: false |
 | municipality       | string     | null: false |
-| adderss            | string     | null: false |
-| build-name         | string     |             |
-| phone-number       | string     | null: false |
+| address            | string     | null: false |
+| build_name         | string     |             |
+| phone_number       | string     | null: false |
 | purchase           | references | null: false |
 
 ### Association
