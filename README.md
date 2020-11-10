@@ -4,15 +4,15 @@
 
 ##usersテーブル
 
-| Column      | Type     | Options     |
-| email       | string   | null: false | devise読み込み
+| Column      | Type     | Options          |
+| email       | string   | null: false      | devise読み込み
 | encrypted_password | string | null: false | devise読み込み
-| nickname     | string   | null: false |
-| first_name   | string   | null: false |
-| second_name  | string   | null: fa;se |
-| first_name_k | string   | null: false |
-| second_name_k| string   | null: false |
-| birthday     | date     | null: false |
+| nickname     | string   | null: false     |
+| first_name   | string   | null: false     |
+| second_name  | string   | null: fa;se     |
+| first_name_k | string   | null: false     |
+| second_name_k| string   | null: false     |
+| birthday     | date     | null: false     |
 ### Association
 - has_many :items
 - has_many :purchases
@@ -26,7 +26,7 @@
 | category_genre_id       |  integer    | null: false       |
 | status-genre_id         |  integer    | null: false       |
 | delivery_burden_genre_id|  integer    | null: false       |
-| prefecture_genre_id      |  integer    | null: false       |
+| prefecture_genre_id     |  integer    | null: false       |
 | delivery_days_genre_id  |  integer    | null: false       |
 | price                   |  integer    | null: false       |
 
