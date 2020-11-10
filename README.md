@@ -24,7 +24,7 @@
 | name                    |  string     | null: false       |
 | explanation             |  text       | null: false       |
 | category_genre_id       |  integer    | null: false       |
-| status-genre_id         |  integer    | null: false       |
+| status_genre_id         |  integer    | null: false       |
 | delivery_burden_genre_id|  integer    | null: false       |
 | prefecture_genre_id     |  integer    | null: false       |
 | delivery_days_genre_id  |  integer    | null: false       |
