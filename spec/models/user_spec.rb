@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
     end
 
-    it 'password:半角英数混合(半角英語のみ)しか保存できない' do
+    it 'passwordは半角英数混合(半角英語のみ)しか保存できない' do
       @user.password = 'aaaaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
@@ -100,7 +100,7 @@ RSpec.describe User, type: :model do
     it 'ユーザー本名は、全角（漢字・ひらがな・カタカナ）で入力していない場合は保存できない' do
       @user.first_name = "ｱｲｳｴｵ"
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name 全角カタカナ文字を使用してください")
+      expect(@user.errors.full_messages).to include("First name 全角(漢字）文字を使用してください")
     end
 
     it 'ユーザー本名は、全角（漢字・ひらがな・カタカナ）で入力していない場合は保存できない' do
