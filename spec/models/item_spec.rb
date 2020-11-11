@@ -21,7 +21,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Name can't be blank")
     end
-    
+
     it 'explanationがないと保存できない' do
       @item.explanation = nil
       @item.valid?
@@ -29,33 +29,33 @@ RSpec.describe Item, type: :model do
     end
 
     it 'category_genre_idが[---]では保存できない' do
-      @item.category_genre_id = "1"
+      @item.category_genre_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category genre must be other than 1")
+      expect(@item.errors.full_messages).to include('Category genre must be other than 1')
     end
 
     it 'status_genre_idが[---]では保存できない' do
-      @item.status_genre_id = "1"
+      @item.status_genre_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status genre must be other than 1")
+      expect(@item.errors.full_messages).to include('Status genre must be other than 1')
     end
 
     it 'delivery_burden_genre_idが[---]では保存できない' do
-      @item.delivery_burden_genre_id = "1"
+      @item.delivery_burden_genre_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery burden genre must be other than 1")
+      expect(@item.errors.full_messages).to include('Delivery burden genre must be other than 1')
     end
 
     it 'prefecture_genre_idが[---]では保存できない' do
-      @item.prefecture_genre_id = "1"
+      @item.prefecture_genre_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture genre must be other than 1")
+      expect(@item.errors.full_messages).to include('Prefecture genre must be other than 1')
     end
 
     it 'delivery_days_genre_idが[---]では保存できない' do
-      @item.delivery_days_genre_id = "1"
+      @item.delivery_days_genre_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery days genre must be other than 1")
+      expect(@item.errors.full_messages).to include('Delivery days genre must be other than 1')
     end
 
     it 'priceがないと保存できない' do
@@ -65,9 +65,9 @@ RSpec.describe Item, type: :model do
     end
 
     it 'price金額が全角もしくは販売価格範囲外になる' do
-      @item.price = "２００"
+      @item.price = '２００'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Price Out of setting range")
+      expect(@item.errors.full_messages).to include('Price Price Out of setting range')
     end
   end
 end

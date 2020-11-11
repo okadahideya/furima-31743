@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    if user_signed_in? 
-     @item = Item.new
+    if user_signed_in?
+      @item = Item.new
     else
       render :index
     end
