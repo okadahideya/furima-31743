@@ -35,31 +35,55 @@ RSpec.describe Item, type: :model do
     end
 
     it 'category_genre_idが[---]では保存できない' do
-      @item.category_genre_id = "1"
+      @item.category_genre_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Category genre must be other than 1')
     end
 
+    it 'status_genre_idが空白では保存できない' do
+      @item.status_genre_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Status genre can't be blank", "Status genre is not a number")
+    end
+
     it 'status_genre_idが[---]では保存できない' do
-      @item.status_genre_id = "1"
+      @item.status_genre_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Status genre must be other than 1')
     end
 
+    it 'delivery_burden_genre_idが空白では保存できない' do
+      @item.delivery_burden_genre_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Delivery burden genre can't be blank", "Delivery burden genre is not a number")
+    end
+
     it 'delivery_burden_genre_idが[---]では保存できない' do
-      @item.delivery_burden_genre_id = "1"
+      @item.delivery_burden_genre_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Delivery burden genre must be other than 1')
     end
 
+    it 'prefecture_genre_idが空白では保存できない' do
+      @item.prefecture_genre_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Prefecture genre can't be blank", "Prefecture genre is not a number")
+    end
+
     it 'prefecture_genre_idが[---]では保存できない' do
-      @item.prefecture_genre_id = "1"
+      @item.prefecture_genre_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Prefecture genre must be other than 1')
     end
 
+    it 'delivery_days_genre_idが空白では保存できない' do
+      @item.delivery_days_genre_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Delivery days genre can't be blank", "Delivery days genre is not a number")
+    end
+
     it 'delivery_days_genre_idが[---]では保存できない' do
-      @item.delivery_days_genre_id = "1"
+      @item.delivery_days_genre_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Delivery days genre must be other than 1')
     end
@@ -77,14 +101,14 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceが300より小さいと登録できない' do
-      @item.price = "299"
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Price Out of setting range')
     end
 
-    
+
     it 'priceが10000000より大きいと登録できない' do
-      @item.price = "10000000"
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Price Out of setting range')
     end
