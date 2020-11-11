@@ -28,6 +28,12 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Explanation can't be blank")
     end
 
+    it 'category_genre_idが空白では保存できない' do
+      @item.category_genre_id = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category genre can't be blank", "Category genre is not a number")
+    end
+
     it 'category_genre_idが[---]では保存できない' do
       @item.category_genre_id = '1'
       @item.valid?
@@ -64,8 +70,20 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
 
-    it 'price金額が全角もしくは販売価格範囲外になる' do
-      @item.price = '２００'
+    it 'priceが金額が全角もしくは販売価格範囲外になる' do
+      @item.price = '３００'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price Price Out of setting range')
+    end
+
+    it 'priceが300より小さいと登録できない' do
+      @item.price = '200'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price Price Out of setting range')
+    end
+
+    it 'priceが10000000より大きいと登録できない' do
+      @item.price = '100000000000'
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Price Out of setting range')
     end
