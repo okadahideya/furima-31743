@@ -15,7 +15,7 @@
 | birthday     | date     | null: false     |
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
 ##itemsテーブル
 
@@ -32,10 +32,10 @@
 
 ### Association
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 
 
-##purchasesテーブル
+##ordersテーブル
 | Column            | Type       | Options          |
 | user              | references | foreign_key: true |
 | item              | references | foreign_key: true |
@@ -58,7 +58,7 @@
 | purchase           | references | null: false |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
 
 
 
