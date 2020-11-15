@@ -50,12 +50,12 @@
 
 | Column             | Type       | Options     |
 | postal_code        | string     | null: false |
-| prefecture_genre_id | integer    | null: false |
+| prefecture_genre_id| integer    | null: false |
 | municipality       | string     | null: false |
 | address            | string     | null: false |
 | build_name         | string     |             |
 | phone_number       | string     | null: false |
-| purchase           | references | null: false |
+| order              | references | null: false |
 
 ### Association
 - belongs_to :order
