@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
   private
 
   def move_to_index
-    unless user_signed_in? == current_user.id
+    unless user_signed_in? && current_user.id
     redirect_to root_path
     end
   end
