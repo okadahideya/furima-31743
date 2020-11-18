@@ -71,6 +71,12 @@ RSpec.describe OrderDelivery, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include('Phone number is invalid')
     end
+
+    it 'phone_numberがハイフンがあると購入できない' do
+      @order.phone_number = '080-9900-9900'
+      @order.valid?
+      expect(@order.errors.full_messages).to include('Phone number is invalid')
+    end
   end
   end
 end
