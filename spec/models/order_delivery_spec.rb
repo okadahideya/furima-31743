@@ -47,15 +47,15 @@ RSpec.describe OrderDelivery, type: :model do
     end
 
     it 'postal_codeはハイフンがないと購入できない' do
-      @order.postal_code = 1234567
+      @order.postal_code = 1_234_567
       @order.valid?
-      expect(@order.errors.full_messages).to include("Postal code is invalid")
+      expect(@order.errors.full_messages).to include('Postal code is invalid')
     end
 
     it 'phone_numberが11桁以内だと購入できない' do
-      @order.phone_number = 123456789123
+      @order.phone_number = 123_456_789_123
       @order.valid?
-      expect(@order.errors.full_messages).to include("Phone number is invalid")
+      expect(@order.errors.full_messages).to include('Phone number is invalid')
     end
   end
 end
