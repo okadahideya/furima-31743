@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create, :move_to_index, :pay_item]
   before_action :move_to_index, only:[:index]
 
   def index
-    @item = Item.find(params[:item_id])
     @order_delivery = OrderDelivery.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_delivery = OrderDelivery.new(order_params)
     if @order_delivery.valid?
        pay_item
@@ -16,19 +15,22 @@ class OrdersController < ApplicationController
       return redirect_to root_path
     else
       render 'index'
-    end
+    end 
   end
 
   private
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def move_to_index
-    unless user_signed_in? && current_user.id
-    redirect_to root_path
+    if  current_user.id && @item.order.present?
+        redirect_to root_path 
     end
   end
 
   def pay_item
-    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
